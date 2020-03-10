@@ -1,0 +1,23 @@
+{
+  "name": "luizalabs-test",
+  "version": "1.0.0",
+  "description": "Just a small and simple parser written in Node.Js for Quake logs",
+  "main": "index.js",
+  "repository": "https://github.com/harbsprog/luizalabs-test.git",
+  "author": "João Harbs <harbsprog@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "nodemon -r esm src/server.js -e js"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security",
+    "sequelize": "^5.21.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
