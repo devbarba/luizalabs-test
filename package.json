@@ -11,6 +11,7 @@
     "start": "nodemon -r esm src/server.js -e js"
   },
   "dependencies": {
+    "bole": "^4.0.0",
     "dotenv": "^8.2.0",
     "esm": "^3.2.25",
     "express": "^4.17.1",
