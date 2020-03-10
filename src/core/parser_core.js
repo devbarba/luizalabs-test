@@ -60,7 +60,9 @@ class Parser {
   matchCommand(command, lineValue) {
     try {
       const type = {
-        InitGame: () => {},
+        InitGame: () => {
+          gameCore.handle()
+        },
         ClientUserinfoChanged: () => {},
         Kill: () => {},
         Default: () => {}

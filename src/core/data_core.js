@@ -1,12 +1,8 @@
 'use strict'
 class Data {
   constructor() {
-    this.parsedLines = [
-      {
-        commandType: '',
-        lineValue: ''
-      }
-    ]
+    this.currentGame = 0
+    this.parsedLines = []
   }
 
   /** Generic function that inserts into data arrays
