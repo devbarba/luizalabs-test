@@ -1,13 +1,16 @@
 'use strict'
 import express from 'express'
 import routes from './routes'
+import parserCore from './core/parser_core'
 
 class App {
   constructor() {
     this.server = express()
+    this.parser = parserCore
 
     this.middlewares()
     this.routes()
+    this.parsing()
   }
 
   middlewares() {
@@ -16,6 +19,10 @@ class App {
 
   routes() {
     this.server.use(routes)
+  }
+
+  parsing() {
+    this.parser.handle()
   }
 }
 
