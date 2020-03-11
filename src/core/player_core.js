@@ -41,6 +41,22 @@ class Player {
       throw new Error(err)
     }
   }
+
+  /** Get name of a player
+   * @param {*} array The array data if contain players
+   * @param {*} game The current game
+   * @param {*} playerId The player id
+   * @return {string} The player Name or undefinned
+   */
+  getPlayerName(array, game, playerId) {
+    try {
+      let player = array.find(h => h.game === game && h.playerId === playerId)
+
+      return player ? player.playerName : '<World>'
+    } catch (err) {
+      throw new Error(err)
+    }
+  }
 }
 
 export default new Player()
