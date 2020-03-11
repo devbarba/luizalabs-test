@@ -25,14 +25,10 @@ class Kill {
       const game = gameCore.getCurrentGame()
 
       if (playerKill != constants.game.world_id) {
-        let player = dataCore.players.find(
-          h => h.game === game && h.playerId === playerKill
-        )
-        if (player) {
-          player.kills++
-        }
+        this.addKill(dataCore.players, game, playerKill)
         this.addTotalKills()
       } else {
+        this.removeKill(dataCore.players, game, playerKilled)
         this.addTotalKills()
       }
     } catch (err) {
@@ -47,6 +43,42 @@ class Kill {
   addTotalKills() {
     try {
       return dataCore.totalKills++
+    } catch (err) {
+      throw new Error(err)
+    }
+  }
+
+  /** Add 1 kill from player kill counter
+   * @param {*} array Array of data to remove kill from player
+   * @param {*} game The currentGame counter
+   * @param {*} playerKilled Player who kill
+   * @return {void}
+   */
+  addKill(array, game, playerKill) {
+    try {
+      let player = array.find(h => h.game === game && h.playerId === playerKill)
+      if (player) {
+        player.kills++
+      }
+    } catch (err) {
+      throw new Error(err)
+    }
+  }
+
+  /** Remove 1 kill from player killed counter
+   * @param {*} array Array of data to remove kill from player
+   * @param {*} game The currentGame counter
+   * @param {*} playerKilled Player was killed
+   * @return {void}
+   */
+  removeKill(array, game, playerKilled) {
+    try {
+      let player = array.find(
+        h => h.game === game && h.playerId === playerKilled
+      )
+      if (player) {
+        player.kills--
+      }
     } catch (err) {
       throw new Error(err)
     }
