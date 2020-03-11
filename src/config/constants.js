@@ -13,7 +13,8 @@ class Config {
     this.game = {
       log_path: process.env.LOG_PATH,
       world_id: process.env.WORLD_ID,
-      regex_command: new RegExp(process.env.REGEX_COMMAND)
+      regex_command: new RegExp(process.env.REGEX_COMMAND),
+      regex_player_id: new RegExp(process.env.REGEX_PLAYERID)
     }
   }
 }
