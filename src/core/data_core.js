@@ -2,6 +2,7 @@
 class Data {
   constructor() {
     this.currentGame = 0
+    this.totalKills = []
     this.players = []
     this.parsedLines = []
   }

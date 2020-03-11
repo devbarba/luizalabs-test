@@ -4,6 +4,7 @@ import fileReadUtil from '../utils/fileRead_util'
 import dataCore from '../core/data_core'
 import gameCore from '../core/game_core'
 import playerCore from '../core/player_core'
+import killCore from '../core/kill_core'
 
 class Parser {
   /** Responsible for making calls to methods that will parse log data
@@ -67,7 +68,9 @@ class Parser {
         ClientUserinfoChanged: () => {
           playerCore.handle(lineValue)
         },
-        Kill: () => {},
+        Kill: () => {
+          killCore.handle(lineValue)
+        },
         Default: () => {}
       }
 
