@@ -8,7 +8,7 @@ var log = bole('server')
 
 log.info('Server starting')
 
-app.listen(constants.port, constants.express.ip, error => {
+app.listen(constants.express.port, constants.express.ip, error => {
   if (error) {
     log.error('Could not list connections', error)
     process.exit(10)

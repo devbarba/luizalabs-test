@@ -28,7 +28,6 @@ class Parser {
     )
 
     this.saveDataSqlite(dataCore.games)
-    // console.log(dataCore.players[0])
   }
 
   /** Push to parsedLines array
@@ -94,12 +93,19 @@ class Parser {
   saveDataSqlite(array) {
     try {
       array.forEach(element => {
-        Games.create({
-          game: element.game,
-          total_kills: element.totalKills,
-          players: element.players,
-          kills: element.kills,
-          log: element.log
+        Games.findAndCountAll({
+          where: {
+            game: element.game
+          }
+        }).then(result => {
+          if (result.count == 0)
+            Games.create({
+              game: element.game,
+              total_kills: element.total_kills,
+              players: element.players,
+              kills: element.kills,
+              log: element.log
+            })
         })
       })
     } catch (err) {
