@@ -10,6 +10,10 @@ class Config {
       ip: process.env.IP || '127.0.0.1'
     }
 
+    this.environment = {
+      env: process.env.NODE_ENV || 'development'
+    }
+
     this.game = {
       log_path: process.env.LOG_PATH,
       world_id: process.env.WORLD_ID,
