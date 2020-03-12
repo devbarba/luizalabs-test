@@ -19,6 +19,12 @@ class Parser {
 
     this.pushToParsedLines(lineCommands)
     this.iterateWithParsedLines(dataCore.parsedLines)
+
+    this.iterateWithGamesArray(
+      dataCore.games,
+      dataCore.players,
+      dataCore.totalKills
+    )
   }
 
   /** Push to parsedLines array
@@ -47,6 +53,31 @@ class Parser {
     try {
       dataCore.parsedLines.forEach(element => {
         this.matchCommand(element.commandType, element.lineValue)
+      })
+    } catch (err) {
+      throw new Error(err)
+    }
+  }
+
+  /** Iterates through the final array
+   * @param {array} finalArray Final data array
+   * @return {void}
+   */
+  iterateWithGamesArray(finalArray, playersArray, totalKills) {
+    try {
+      finalArray.forEach(game => {
+        playersArray.forEach(player => {
+          if (game.game == player.game) {
+            game.players.push(player.playerName)
+            game.kills[player.playerName] = player.kills
+
+            let totalKillsByGame = totalKills.find(h => h.game == game.game)
+
+            if (totalKillsByGame) {
+              game.total_kills = totalKillsByGame.totalKills
+            }
+          }
+        })
       })
     } catch (err) {
       throw new Error(err)
