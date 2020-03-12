@@ -50,7 +50,18 @@ class Kill {
    */
   addTotalKills() {
     try {
-      return dataCore.totalKills++
+      let world = dataCore.totalKills.find(
+        h => h.game == gameCore.getCurrentGame()
+      )
+
+      if (!world) {
+        dataCore.pushToArray(dataCore.totalKills, {
+          game: gameCore.getCurrentGame(),
+          totalKills: +1
+        })
+      } else {
+        world.totalKills++
+      }
     } catch (err) {
       throw new Error(err)
     }
