@@ -5,6 +5,7 @@ import dataCore from '../core/data_core'
 import gameCore from '../core/game_core'
 import playerCore from '../core/player_core'
 import killCore from '../core/kill_core'
+import { Games } from '../models'
 
 class Parser {
   /** Responsible for making calls to methods that will parse log data
@@ -25,6 +26,9 @@ class Parser {
       dataCore.players,
       dataCore.totalKills
     )
+
+    this.saveDataSqlite(dataCore.games)
+    // console.log(dataCore.players[0])
   }
 
   /** Push to parsedLines array
@@ -84,6 +88,25 @@ class Parser {
     }
   }
 
+  /** Save all data in the sqlite db
+   * @param {*} array The source array
+   */
+  saveDataSqlite(array) {
+    try {
+      array.forEach(element => {
+        Games.create({
+          game: element.game,
+          total_kills: element.totalKills,
+          players: element.players,
+          kills: element.kills,
+          log: element.log
+        })
+      })
+    } catch (err) {
+      throw new Error(err)
+    }
+  }
+
   /** Check which command it is and send it to the responsible function
    * to handle
    * @param {string} command Command for verification
@@ -102,7 +125,12 @@ class Parser {
         Kill: () => {
           killCore.handle(lineValue)
         },
-        Default: () => {}
+        Default: () => {
+          killCore.createWorldWithoutKills(
+            dataCore.games,
+            gameCore.getCurrentGame()
+          )
+        }
       }
 
       return type[command] ? type[command]() : type['Default']()

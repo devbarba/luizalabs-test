@@ -128,6 +128,49 @@ class Kill {
     }
   }
 
+  /** Create a game without have a kill
+   *  @param {*} array Array of data to create worl
+   * @param {*} game The currentGame counter
+   * @return {void}
+   */
+  createWorldWithoutKills(array, game) {
+    try {
+      let world = array.find(h => h.game === game)
+      if (!world && game != 0) {
+        array.push({
+          game,
+          total_kills: 0,
+          players: [],
+          kills: {},
+          log: []
+        })
+      }
+    } catch (err) {
+      throw new Error(err)
+    }
+  }
+
+  /** Create a game without have a kill
+   * @param {*} game The currentGame counter
+   * @return {void}
+   */
+  createWithoutKills(game) {
+    try {
+      let world = array.find(h => h.game === game)
+      if (!world) {
+        array.push({
+          game,
+          total_kills: 0,
+          players: [],
+          kills: {},
+          log: []
+        })
+      }
+    } catch (err) {
+      throw new Error(err)
+    }
+  }
+
   /** Check which mod it is and send it to the responsible function
    * to return log
    * @param {integer} playerKill Id of player who killed

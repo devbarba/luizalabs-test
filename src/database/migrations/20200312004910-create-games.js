@@ -10,11 +10,11 @@ module.exports = {
         type: DataTypes.INTEGER
       },
       game: {
-        allowNull: false,
+        allowNull: true,
         type: DataTypes.INTEGER
       },
       total_kills: {
-        allowNull: false,
+        allowNull: true,
         type: DataTypes.INTEGER
       },
       players: {
