@@ -15,25 +15,27 @@ Primeiramente gostaria de agradecer a oportunidade de poder realizar o teste e t
 ## Comportamento do Projeto
 
 - **Parseamento**
+  
   Basicamente realizo chamadas a métodos que encontram padrões no log utilizando REGEX. faço a persistência dos dados em um banco sqLite e exibo os dados em 2 diferentes rotas, a primeira `/games/:id`, dado o id do game, é mostrado ao usuário dados referentes ao mesmo e a segunda `/games`, onde são exibidos dados de todos os games.
 
 * **Persistência**
 
-      	Não foi solicitado, porém, achei interessante persistir os dados em um banco sqLite utilizando o ORM Sequelize onde também criei uma migration facilitando na criação e versionamento do banco.
+     Não foi solicitado, porém, achei interessante persistir os dados em um banco sqLite utilizando o ORM Sequelize onde também criei uma migration facilitando na criação e versionamento do banco.
 
 - **API**
 
-      	Para a exposição das rotas no modelo RESTFul com formato JSON utilizei o micro-framework Express por ser bem enxuto, simples de trabalhar e por ter bem mais contato. Poderia ter utilizado o Hapi sem problema algum.
+     Para a exposição das rotas no modelo RESTFul com formato JSON utilizei o micro-framework Express por ser bem enxuto, simples de trabalhar e por ter bem mais contato. Poderia ter utilizado o Hapi sem problema algum.
 
 - **LOGS**
 
-      	Realizei a implementação de uma feature que não foi pedida, que salva os logs de morte e faz uma pequena tradução, achei que seria interessante e deixaria a aplicação mais completa consumindo quase que por completo as informações de log como podemos ver abaixo:
+     Realizei a implementação de uma feature que não foi pedida, que salva os logs de morte e faz uma pequena tradução, achei que seria interessante e deixaria a aplicação mais completa consumindo quase que por completo as informações de log como podemos ver abaixo:
 
-      	![Rota](https://image.prntscr.com/image/Mm1OShxPSOCJOhYEhXAH7g.png)
+ 
+  ![Rota](https://image.prntscr.com/image/Mm1OShxPSOCJOhYEhXAH7g.png)
 
 
-    ### PS:
-    Devido a um dos requisitos de quando  <'world'> matar um player, o mesmo perder 1 de suas kills, no array de mortes os valores acabam ficando negativos onde na minha concepção está certo, porém se necessário uma pequena alteração resolveria não deixando passar de 0 as kills dos player.
+- ### PS:
+   Devido a um dos requisitos de quando  <'world'> matar um player, o mesmo perder 1 de suas kills, no array de mortes os valores acabam ficando negativos onde na minha concepção está certo, porém se necessário uma pequena alteração resolveria não deixando passar de 0 as kills dos player.
 
 ## Tecnologias utilizadas
 
