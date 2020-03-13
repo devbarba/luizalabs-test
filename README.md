@@ -1,3 +1,4 @@
+
 # Desafio Luiza Labs
 
 ## Intro
@@ -29,6 +30,9 @@ Primeiramente gostaria de agradecer a oportunidade de poder realizar o teste e t
 - **LOGS**
 
      Realizei a implementação de uma feature que não foi pedida, que salva os logs de morte e faz uma pequena tradução, achei que seria interessante e deixaria a aplicação mais completa consumindo quase que por completo as informações de log como podemos ver abaixo:
+     
+- **TESTS**
+    Para realizar os testes unitários e de integração foram utilizadas as dependências Mocha, Chai e Supertest.
 
  
   ![Rota](https://image.prntscr.com/image/Mm1OShxPSOCJOhYEhXAH7g.png)
@@ -37,6 +41,67 @@ Primeiramente gostaria de agradecer a oportunidade de poder realizar o teste e t
 - ### PS:
    Devido a um dos requisitos de quando  <'world'> matar um player, o mesmo perder 1 de suas kills, no array de mortes os valores acabam ficando negativos onde na minha concepção está certo, porém se necessário uma pequena alteração resolveria não deixando passar de 0 as kills dos player.
 
+
+# End-points
+
+### Games
+
+| resource                  | description     |
+| :------------------------ | :-------------- |
+| `/api/games/{id}` **GET** | Get the game data with related id  |
+
+`/api/games/{id}` **GET** - RESPONSE
+
+```shell
+  "game_5": {
+    "total_kills": 2,
+    "players": [
+      "Mocinha", 
+      "Isgalamido"
+    ],
+    "kills": [
+      "Mocinha": 1, 
+      "Isgalamido": 1
+    ],
+    "log": [
+      "Mochinha matou o player Isgalamido com MOD_RAILGUN",
+      "Isgalamido matou o player Mochinha com MOD_RAILGUN"]
+  }
+```
+
+| resource                  | description     |
+| :------------------------ | :-------------- |
+| `/api/games` **GET** | Get all the games data |
+
+`/api/games` **GET** - RESPONSE
+
+```shell
+  "game_1": {
+    "total_kills": 2,
+    "players": [
+      "Mocinha", 
+      "Isgalamido"
+    ],
+    "kills": [
+      "Mocinha": 1, 
+      "Isgalamido": 1
+    ],
+    "log": [
+      "Mochinha matou o player Isgalamido com MOD_RAILGUN",
+      "Isgalamido matou o player Mochinha com MOD_RAILGUN"]
+  },
+  "game_2": {
+    "total_kills": 1,
+    "players": [
+      "Isgalamido"
+    ],
+    "kills": [
+      "Mocinha": -1, 
+    ],
+    "log": [
+      "<world> matou o player Isgalamido com MOD_TRIGGER_HURT",
+  }
+```
 ## Tecnologias utilizadas
 
 - [Node](https://nodejs.org/en/) - v13.7.0
