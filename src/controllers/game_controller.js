@@ -46,7 +46,7 @@ class GameController {
       if (games.length != 0) {
         games.forEach(element => {
           result.push({
-            [`game_${elemen1t.game}`]: {
+            [`game_${element.game}`]: {
               total_kills: element.total_kills,
               players: element.players,
               kills: element.kills,

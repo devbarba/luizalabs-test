@@ -68,9 +68,9 @@ class Kill {
   }
 
   /** Add 1 kill from player kill counter
-   * @param {*} array Array of data to remove kill from player
-   * @param {*} game The currentGame counter
-   * @param {*} playerKilled Player who kill
+   * @param {array} array Array of data to remove kill from player
+   * @param {integer} game The currentGame counter
+   * @param {integer} playerKilled Player who kill
    * @return {void}
    */
   addKill(array, game, playerKill) {

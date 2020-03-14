@@ -9,28 +9,38 @@ class Player {
    * @return {void}
    */
   handle(lineValue) {
-    this.createOrUpdatePlayer(lineValue, constants.game.regex_player_id)
+    this.createOrUpdatePlayer(
+      lineValue,
+      gameCore.getCurrentGame(),
+      dataCore.players,
+      constants.game.regex_player_id
+    )
   }
 
   /** Create or update a player in array of players
    * @param {string} lineValue The line value to parse
+   * @param {integer} currentGame The currentGame
+   * @param {string} arraySource The array destination
    * @param {regExp} regex regex retrieve player id
    * @return {void}
    */
-  createOrUpdatePlayer(lineValue, regex) {
+  createOrUpdatePlayer(lineValue, currentGame, arraySource, regex) {
     try {
       const playerId = lineValue.match(regex)[1]
       const playerName = lineValue.match(regex)[2]
-      const game = gameCore.getCurrentGame()
+      const game = currentGame
       const kills = 0
 
-      let player = dataCore.players.find(
-        h => h.game === game && h.playerId === playerId
+      let player = arraySource.find(
+        h =>
+          h.game === game &&
+          h.playerId === playerId &&
+          h.playerName === playerName
       )
       if (player) {
         Object.assign(player, { playerName })
       } else {
-        dataCore.pushToArray(dataCore.players, {
+        dataCore.pushToArray(arraySource, {
           game,
           playerId,
           playerName,
