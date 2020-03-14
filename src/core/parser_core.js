@@ -6,6 +6,7 @@ import gameCore from '../core/game_core'
 import playerCore from '../core/player_core'
 import killCore from '../core/kill_core'
 import { Games } from '../models'
+import async from 'async'
 
 class Parser {
   /** Responsible for making calls to methods that will parse log data
@@ -92,21 +93,22 @@ class Parser {
    */
   saveDataSqlite(array) {
     try {
-      array.forEach(element => {
-        Games.findAndCountAll({
+      async.eachSeries(array, (that, callback) => {
+        let games = Games.findOne({
           where: {
-            game: element.game
+            game: that.game
           }
-        }).then(result => {
-          if (result.count == 0)
-            Games.create({
-              game: element.game,
-              total_kills: element.total_kills,
-              players: element.players,
-              kills: element.kills,
-              log: element.log
-            })
         })
+
+        if (games)
+          Games.create({
+            game: that.game,
+            total_kills: that.total_kills,
+            players: that.players,
+            kills: that.kills,
+            log: that.log
+          })
+        callback()
       })
     } catch (err) {
       throw new Error(err)
