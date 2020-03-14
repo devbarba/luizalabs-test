@@ -1,0 +1,49 @@
+{
+  "name": "luizalabs-test",
+  "version": "1.0.0",
+  "description": "Just a small and simple parser written in Node.Js for Quake logs",
+  "main": "index.js",
+  "repository": "https://github.com/harbsprog/luizalabs-test.git",
+  "author": "João Harbs <harbsprog@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "nodemon -r esm src/server.js -e js",
+    "test-integration": "mocha --require esm test/integration/*.js",
+    "test-unit": "mocha --require esm test/unit/*.js"
+  },
+  "mocha": {
+    "diff": true,
+    "require": "test/helper.js",
+    "extension": [
+      "js"
+    ],
+    "package": "./package.json",
+    "reporter": "spec",
+    "slow": 5000,
+    "timeout": 2000,
+    "ui": "bdd",
+    "watch-files": [
+      "test/**/*.js"
+    ],
+    "watch-ignore": []
+  },
+  "dependencies": {
+    "async": "^3.2.0",
+    "bole": "^4.0.0",
+    "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7",
+    "sequelize": "^5.21.5",
+    "sqlite3": "^4.1.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.1.0",
+    "nodemon": "^2.0.2",
+    "sequelize-cli": "^5.5.1",
+    "supertest": "^4.0.2"
+  }
+}
