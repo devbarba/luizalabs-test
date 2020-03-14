@@ -1,3 +1,4 @@
+
 # Desafio Luiza Labs
 
 ## Intro
@@ -34,10 +35,11 @@ Primeiramente gostaria de agradecer a oportunidade de poder realizar o teste e t
 
   Realizei a implementação de uma feature que não foi pedida, que salva os logs de morte e faz uma pequena tradução, achei que seria interessante e deixaria a aplicação mais completa consumindo quase que por completo as informações de log como podemos ver abaixo:
 
-![Rota](https://image.prntscr.com/image/Mm1OShxPSOCJOhYEhXAH7g.png)
+  ![Rota](https://image.prntscr.com/image/Mm1OShxPSOCJOhYEhXAH7g.png)
 
 - ### PS:
   Devido a um dos requisitos de quando <'world'> matar um player, o mesmo perder 1 de suas kills, no array de mortes os valores acabam ficando negativos onde na minha concepção está certo, porém se necessário uma pequena alteração resolveria não deixando passar de 0 as kills dos player.
+
 
 # End-points
 
@@ -46,6 +48,7 @@ Primeiramente gostaria de agradecer a oportunidade de poder realizar o teste e t
 | resource                  | description                       |
 | :------------------------ | :-------------------------------- |
 | `/api/games/{id}` **GET** | Get the game data with related id |
+
 
 `/api/games/{id}` **GET** - RESPONSE
 
