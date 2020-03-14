@@ -9,11 +9,12 @@
   "private": true,
   "scripts": {
     "start": "nodemon -r esm src/server.js -e js",
-    "test-integration": "mocha --require esm test/integration/mocha.opts test/integration/*.js"
+    "test-integration": "mocha --require esm test/integration/*.js",
+    "test-unit": "mocha --require esm test/unit/*.js"
   },
   "mocha": {
     "diff": true,
-    "require": "test/integration/helper.js",
+    "require": "test/helper.js",
     "extension": [
       "js"
     ],
@@ -28,6 +29,7 @@
     "watch-ignore": []
   },
   "dependencies": {
+    "async": "^3.2.0",
     "bole": "^4.0.0",
     "dotenv": "^8.2.0",
     "esm": "^3.2.25",

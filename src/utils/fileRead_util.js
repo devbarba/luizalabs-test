@@ -14,7 +14,6 @@ class FileRead {
           .toString()
           .split('\n')
       }
-
       throw new Error('The specified file in the LOG_PATH env not exists')
     } catch (err) {
       throw new Error(err)
