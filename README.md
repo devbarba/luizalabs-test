@@ -11,7 +11,7 @@ Desafio proposto pela Luiza Labs em processo seletivo para vaga de Desenvolvedor
 
 Primeiramente gostaria de agradecer a oportunidade de poder realizar o teste e ter a chance de entrar para uma empresa tão inovadora como é o LuizaLabs. Dado o desafio de parsear um arquivo de logs do game quake e criar uma api de consulta decidi utilizar a linguagem Node.JS devido ter maior familiaridade/vivência dentre as que foram propostas (Java, Golang e Node.JS).
 
-[README do desafio proposto](https://github.com/harbsprog/luizalabs-test/blob/master/README.md)
+[README do desafio proposto](https://github.com/harbsprog/luizalabs-test/blob/master/README-DESAFIO.md)
 
 ## Demonstração
 
