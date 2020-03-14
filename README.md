@@ -13,6 +13,14 @@ Primeiramente gostaria de agradecer a oportunidade de poder realizar o teste e t
 
 [README do desafio proposto](https://github.com/harbsprog/luizalabs-test/blob/master/README.md)
 
+## Demonstração
+
+  Realizei uma demonstração do projeto rodando e realizando requisição GET nas 2 rotas via insomnia, segue link:
+ 
+  [Vídeo da demonstração](https://youtu.be/89An4dgqv44)
+  
+  PS: Ambiente de desenvolvimento MAC
+  
 ## Comportamento do Projeto
 
 - **Parseamento**
@@ -119,6 +127,7 @@ Primeiramente gostaria de agradecer a oportunidade de poder realizar o teste e t
 - [Mocha](https://mochajs.org/) - 7.1.0
 - [Nodemon](https://nodemon.io/) - 2.0.2
 - [Sequelize-cli](https://www.npmjs.com/package/sequelize-cli) - 5.5.1
+- [Async](https://www.npmjs.com/package/async) - 3.2.0
 - [Supertest](https://www.npmjs.com/package/supertest) - 4.0.2
 
 ## Instalação
@@ -143,7 +152,7 @@ Para rodar a aplicação em sua máquina siga os seguintes passos:
 
 6) yarn start `(Roda a aplicação)`
 
-7. Acesse: http://127.0.0.1.8081/ Se apresentar uma mensagem de boas-vindas ocorreu tudo bem.
+7. Acesse: http://127.0.0.1:8081/ Se apresentar uma mensagem de boas-vindas ocorreu tudo bem.
 
 ## Testes
 
