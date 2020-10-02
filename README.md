@@ -1,52 +1,52 @@
 
-# Desafio Luiza Labs
+# Luiza Labs Challenge
 
 ## Intro
 
-Desafio proposto pela Luiza Labs em processo seletivo para vaga de Desenvolvedor Back-end que consiste em desenvolver uma aplicação backend, com os requisitos:
+Challenge proposed by Luiza Labs in a selection process for a Back-end Developer job that consists of developing a back-end application, with the following requirements:
 
-- Construa um parser para o arquivo de log games.log e exponha uma API de consulta.
+- Build a parser for the games.log log file and expose a query API.
 
-- Após construir o parser construa uma API que faça a exposição de um método de consulta que retorne um relatório de cada jogo.
+- After building the parser, build an API that exposes a query method that returns a report for each game.
 
-Primeiramente gostaria de agradecer a oportunidade de poder realizar o teste e ter a chance de entrar para uma empresa tão inovadora como é o LuizaLabs. Dado o desafio de parsear um arquivo de logs do game quake e criar uma api de consulta decidi utilizar a linguagem Node.JS devido ter maior familiaridade/vivência dentre as que foram propostas (Java, Golang e Node.JS).
+First of all I would like to thank you for the opportunity to be able to take the test and have the chance to join a company as innovative as LuizaLabs. Given the challenge of parsing a game quake log file and creating a query api, I decided to use the Node.JS language due to its greater familiarity / experience among those proposed (Java, Golang and Node.JS).
 
-[README do desafio proposto](https://github.com/harbsprog/luizalabs-test/blob/master/README-DESAFIO.md)
+[README of the proposed challenge](https://github.com/harbsprog/luizalabs-test/blob/master/README-DESAFIO.md)
 
-## Demonstração
+## Demonstration
 
-  Realizei uma demonstração do projeto rodando e realizando requisição GET nas 2 rotas via insomnia, segue link:
+  I carried out a demonstration of the project running and making a GET request on the 2 routes via insomnia, follow link:
  
-  [Vídeo da demonstração](https://youtu.be/89An4dgqv44)
+  [Demo Video](https://youtu.be/89An4dgqv44)
   
-  PS: Ambiente de desenvolvimento MAC
+  PS: MAC development environment.
   
-## Comportamento do Projeto
+## Project Behavior
 
-- **Parseamento**
+- **Parsing**
 
-  Basicamente realizo chamadas a métodos que encontram padrões no log utilizando REGEX. faço a persistência dos dados em um banco sqLite e exibo os dados em 2 diferentes rotas, a primeira `/games/:id`, dado o id do game, é mostrado ao usuário dados referentes ao mesmo e a segunda `/games`, onde são exibidos dados de todos os games.
+  Basically I make calls to methods that find patterns in the log using REGEX. I persist the data in a sqLite database and display the data in 2 different routes, the first `/ games /: id`, given the game id, the user is shown data related to it and the second` / games`, where data from all games are displayed.
 
-* **Persistência**
+* **Persistence**
 
-  Não foi solicitado, porém, achei interessante persistir os dados em um banco sqLite utilizando o ORM Sequelize onde também criei uma migration facilitando na criação e versionamento do banco.
+  It was not requested, however, I found it interesting to persist the data in a sqLite database using the ORM Sequelize where I also created a migration facilitating the creation and versioning of the bank.
 
 - **API**
 
-  Para a exposição das rotas no modelo RESTFul com formato JSON utilizei o micro-framework Express por ser bem enxuto, simples de trabalhar e por ter bem mais contato. Poderia ter utilizado o Hapi sem problema algum.
+  For the exposure of routes in the RESTFul model with JSON format I used the Express micro-framework for being very lean, simple to work with and for having a lot more contact. I could have used Hapi without any problem.
 
 - **TESTS**
 
-  Para realizar os testes unitários e de integração foram utilizadas as dependências Mocha, Chai e Supertest.
+  To perform unit and integration tests, the Mocha, Chai and Supertest facilities were used.
 
 - **LOGS**
 
-  Realizei a implementação de uma feature que não foi pedida, que salva os logs de morte e faz uma pequena tradução, achei que seria interessante e deixaria a aplicação mais completa consumindo quase que por completo as informações de log como podemos ver abaixo:
+  I performed the implementation of a feature that was not requested, that saves the death logs and makes a small translation, I thought it would be interesting and would make the application more complete consuming almost completely the log information as we can see below:
 
-  ![Rota](https://image.prntscr.com/image/Mm1OShxPSOCJOhYEhXAH7g.png)
+  ![Route](https://image.prntscr.com/image/Mm1OShxPSOCJOhYEhXAH7g.png)
 
 - ### PS:
-  Devido a um dos requisitos de quando <'world'> matar um player, o mesmo perder 1 de suas kills, no array de mortes os valores acabam ficando negativos onde na minha concepção está certo, porém se necessário uma pequena alteração resolveria não deixando passar de 0 as kills dos player.
+  Due to one of the requirements when <'world'> to kill a player, the same one loses 1 of his kills, in the array of deaths the values ​​end up being negative where in my conception it is right, however if necessary a small change would resolve not letting go 0 the player's kills.
 
 
 # End-points
@@ -111,7 +111,7 @@ Primeiramente gostaria de agradecer a oportunidade de poder realizar o teste e t
   }
 ```
 
-## Tecnologias utilizadas
+## Used Technologies
 
 - [Node](https://nodejs.org/en/) - v13.7.0
 - [Yarn](https://yarnpkg.com/) - 1.21.1
@@ -130,38 +130,38 @@ Primeiramente gostaria de agradecer a oportunidade de poder realizar o teste e t
 - [Async](https://www.npmjs.com/package/async) - 3.2.0
 - [Supertest](https://www.npmjs.com/package/supertest) - 4.0.2
 
-## Instalação
+## Instalation
 
-### Pré-requisitos
+### Prerequisites
 
-Para rodar a aplicação é necessário somente ter instalado o Node na versão v13.7.0
+To run the application it is only necessary to have Node installed in version v13.7.0.
 
-### Etapas
+### Phases
 
-Para rodar a aplicação em sua máquina siga os seguintes passos:
+To run the application on your machine, follow these steps:
 
 1. git clone [https://github.com/harbsprog/luizalabs-test](https://github.com/harbsprog/luizalabs-test)
 
-2) cd luizalabs-test `Acessa a pasta do projeto`
+2) cd luizalabs-test `Access the project folder`
 
-3. yarn install `Realiza instlação das dependências`
+3. yarn install `Performs installation of dependencies`
 
-4) cp .env.example .env `Copia as variáveis de ambiente`
+4) cp .env.example .env `Copy environment variables`
 
-5. npx sequelize db:migrate `Roda as migrations`
+5. npx sequelize db:migrate `Run migrations`
 
-6) yarn start `(Roda a aplicação)`
+6) yarn start `(Run the application)`
 
-7. Acesse: http://127.0.0.1:8081/ Se apresentar uma mensagem de boas-vindas ocorreu tudo bem.
+7. Access: http://127.0.0.1:8081/ If you present a welcome message everything went well.
 
-## Testes
+## Tests
 
-Foram realizados testes de integração e testes unitários:
+Integration tests and unit tests were carried out:
 
-Para rodar os testes de integração rode o seguinte comando:
+To run the integration tests run the following command:
 `yarn test-integration`
 
-Para rodar os testes unitários rode o seguinte comando:
+To run the unit tests run the following command:
 `yarn test-unit`
 
 ## Author
